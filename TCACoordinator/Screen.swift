@@ -16,13 +16,13 @@ enum Screen {
     case numberDetail(NumberDetail)
 }
 
-
 // home
 struct HomeView: View {
     let store: StoreOf<Home>
     
     var body: some View {
         VStack {
+            Text("This is Home View")
             Button("Start") {
                 store.send(.startTapped)
             }
@@ -46,7 +46,15 @@ struct NumbersListView: View {
     let store: StoreOf<NumbersList>
     
     var body: some View {
-        Text("NumberList")
+        WithPerceptionTracking {
+            List(store.numbers, id: \.self) { number in
+                Button(action: {
+                    store.send(.numberSelected(number))
+                }, label: {
+                    Text("\(number)")
+                })
+            }
+        }
     }
 }
 
@@ -68,7 +76,9 @@ struct NumberDetailView: View {
     let store: StoreOf<NumberDetail>
     
     var body: some View {
-        Text("NumberDetail")
+        WithPerceptionTracking {
+            Text("\(store.number)")
+        }
     }
 }
 
@@ -81,6 +91,8 @@ struct NumberDetail {
     }
     
     enum Action {
-       case none
+        case none
     }
 }
+
+

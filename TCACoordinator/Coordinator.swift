@@ -31,6 +31,8 @@ struct Coordinator {
             switch action {
             case .router(.routeAction(_, .home(.startTapped))):
                 state.routes.presentSheet(.numbersList(.init(numbers: Array(0..<4))), embedInNavigationView: true)
+            case .router(.routeAction(_, action: .numbersList(.numberSelected(let number)))):
+                state.routes.push(.numberDetail(.init(number: number)))
             default:
                 break
             }

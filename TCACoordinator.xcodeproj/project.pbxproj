@@ -15,6 +15,12 @@
 		47B22BC72C942CE2009A4073 /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 47B22BC62C942CE2009A4073 /* TCACoordinators */; };
 		47B22BC92C942ED8009A4073 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B22BC82C942ED8009A4073 /* Screen.swift */; };
 		47B22BCB2C942F0E009A4073 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B22BCA2C942F0E009A4073 /* Coordinator.swift */; };
+		47D999FE2C9B4D9D002A1C24 /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D999FD2C9B4D9D002A1C24 /* AppCoordinatorView.swift */; };
+		47D99A002C9B5153002A1C24 /* AppCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D999FF2C9B5153002A1C24 /* AppCoordinatorReducer.swift */; };
+		47D99A022C9B52CA002A1C24 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D99A012C9B52CA002A1C24 /* MainTabView.swift */; };
+		47D99A042C9B52DF002A1C24 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D99A032C9B52DF002A1C24 /* OnBoardingView.swift */; };
+		47D99A062C9B52F5002A1C24 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D99A052C9B52F5002A1C24 /* SplashView.swift */; };
+		47D99A082C9B6056002A1C24 /* TabScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D99A072C9B6056002A1C24 /* TabScreens.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,12 @@
 		47B22BBB2C942C3B009A4073 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		47B22BC82C942ED8009A4073 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		47B22BCA2C942F0E009A4073 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		47D999FD2C9B4D9D002A1C24 /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
+		47D999FF2C9B5153002A1C24 /* AppCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorReducer.swift; sourceTree = "<group>"; };
+		47D99A012C9B52CA002A1C24 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		47D99A032C9B52DF002A1C24 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		47D99A052C9B52F5002A1C24 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		47D99A072C9B6056002A1C24 /* TabScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreens.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +71,13 @@
 		47B22BB32C942C38009A4073 /* TCACoordinator */ = {
 			isa = PBXGroup;
 			children = (
+				47D999FD2C9B4D9D002A1C24 /* AppCoordinatorView.swift */,
+				47D999FF2C9B5153002A1C24 /* AppCoordinatorReducer.swift */,
+				47D99A012C9B52CA002A1C24 /* MainTabView.swift */,
+				47D99A032C9B52DF002A1C24 /* OnBoardingView.swift */,
+				47D99A052C9B52F5002A1C24 /* SplashView.swift */,
 				47B22BB42C942C38009A4073 /* TCACoordinatorApp.swift */,
+				47D99A072C9B6056002A1C24 /* TabScreens.swift */,
 				47B22BCA2C942F0E009A4073 /* Coordinator.swift */,
 				47B22BC82C942ED8009A4073 /* Screen.swift */,
 				47B22BB62C942C38009A4073 /* ContentView.swift */,
@@ -156,9 +174,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B22BCB2C942F0E009A4073 /* Coordinator.swift in Sources */,
+				47D99A082C9B6056002A1C24 /* TabScreens.swift in Sources */,
 				47B22BB72C942C38009A4073 /* ContentView.swift in Sources */,
 				47B22BB52C942C38009A4073 /* TCACoordinatorApp.swift in Sources */,
+				47D99A002C9B5153002A1C24 /* AppCoordinatorReducer.swift in Sources */,
+				47D99A062C9B52F5002A1C24 /* SplashView.swift in Sources */,
+				47D99A022C9B52CA002A1C24 /* MainTabView.swift in Sources */,
+				47D99A042C9B52DF002A1C24 /* OnBoardingView.swift in Sources */,
 				47B22BC92C942ED8009A4073 /* Screen.swift in Sources */,
+				47D999FE2C9B4D9D002A1C24 /* AppCoordinatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

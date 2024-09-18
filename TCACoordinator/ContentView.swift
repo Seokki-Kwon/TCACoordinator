@@ -27,16 +27,16 @@ struct ContentView: View {
 }
 
 extension Screen.State: Identifiable {
-  var id: UUID {
-    switch self {
-    case let .home(state):
-      state.id
-    case let .numbersList(state):
-      state.id
-    case let .numberDetail(state):
-      state.id
+    var id: UUID {
+        switch self {
+        case let .home(state):
+            state.id
+        case let .numbersList(state):
+            state.id
+        case let .numberDetail(state):
+            state.id
+        }
     }
-  }
 }
 
 //#Preview {
