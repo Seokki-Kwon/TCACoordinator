@@ -15,11 +15,11 @@ struct AppCoordinatorView: View {
     var body: some View {
         TCARouter(store.scope(state: \.routes, action: \.router)) { screen in
             switch screen.case {
-            case .mainTab(let store):
-                MainTabView()
-            case .onBoarding(let store):
+            case .mainTab:
+                MainTabView(store: store.scope(state: \.mainTab, action: \.mainTab))
+            case let .onBoarding(store):
                 OnBoardingView(store: store)
-            case .splash(let store):
+            case let .splash(store):
                 SplashView(store: store)
             }
         }

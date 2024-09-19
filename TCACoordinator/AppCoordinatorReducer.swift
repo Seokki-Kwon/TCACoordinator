@@ -5,7 +5,7 @@
 //  Created by 권석기 on 9/19/24.
 //
 
-import Foundation
+import SwiftUI
 import ComposableArchitecture
 import TCACoordinators
 
@@ -19,30 +19,34 @@ enum AppScreen {
 @Reducer
 struct AppCoordinatorReducer {
     @ObservableState
-    struct State: Equatable {
-        static let initialState = State(
-                routes: [.root(.splash(.init()))]
-               )
+    struct State {
         var routes: [Route<AppScreen.State>]
+        var mainTab: MainTabReducer.State
     }
     
     enum Action {
         case router(IndexedRouterActionOf<AppScreen>)
+        case mainTab(MainTabReducer.Action)
     }
     
     var body: some ReducerOf<Self> {
+        Scope(state: \.mainTab, action: \.mainTab) {
+            MainTabReducer()
+        }
+        
         Reduce<State, Action> { state, action in
             switch action {
-            case .router(.routeAction(_, action: .mainTab(.init()))):
-                state.routes.push(.mainTab(.init()))
+            case .mainTab(.setting(.logout)):
+                state.routes = [.root(.onBoarding(.init()))]
+                return .none
             case .router(.routeAction(_, action: .splash(.loginRequest(let isSuccess)))):
                 if isSuccess {
-                    state.routes = [.root(.mainTab(.init()))]
+                    state.routes = [.root(.mainTab(.initialState))]
                 } else {
                     state.routes = [.root(.onBoarding(.init()))]
                 }
             case .router(.routeAction(_, action: .onBoarding(.login))):
-                state.routes = [.root(.mainTab(.init()))]
+                state.routes = [.root(.mainTab(.initialState))]
             default:
                 break
             }
@@ -56,11 +60,36 @@ struct AppCoordinatorReducer {
 // reducer
 @Reducer
 struct MainTabReducer {
-    struct State: Equatable {
-        let id = UUID()
+    enum Tab: Hashable {
+        case home, setting
     }
     
-    enum Action {}
+    @ObservableState
+    struct State: Equatable {
+        static let initialState = State(home: .init(), setting: .init())
+        var home: HomeScreenReducer.State
+        var setting: SettingScreenReducer.State
+    }
+    
+    enum Action {
+        case home(HomeScreenReducer.Action)
+        case setting(SettingScreenReducer.Action)
+    }
+    
+    var body: some ReducerOf<Self> {
+        Scope(state: \.setting, action: \.setting) {
+            SettingScreenReducer()
+        }
+        Reduce { state, action in
+            switch action {
+            case .setting(.logout):
+                print("로그아웃")
+                return .none
+            default:
+                return .none
+            }
+        }
+    }
 }
 
 @Reducer

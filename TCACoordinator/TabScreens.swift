@@ -16,14 +16,39 @@ struct HomeScreenView: View {
 }
 
 struct SettingView: View {
+    let store: StoreOf<SettingScreenReducer>
     
     var body: some View {
         List {
             Button(action: {
-                
+                store.send(.logout)
             }, label: {
                 Text("Logout")
             })
         }
+    }
+}
+
+@Reducer
+struct HomeScreenReducer {
+   
+    @ObservableState
+    struct State: Equatable {
+        
+    }
+    
+    enum Action {}
+}
+
+@Reducer
+struct SettingScreenReducer {
+   
+    @ObservableState
+    struct State: Equatable {
+        
+    }
+    
+    enum Action {
+        case logout
     }
 }

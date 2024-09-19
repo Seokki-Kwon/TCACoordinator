@@ -11,12 +11,12 @@ import TCACoordinators
 
 @main
 struct TCACoordinatorApp: App {
-    
+    let store = Store(initialState: AppCoordinatorReducer.State(routes: [.root(.splash(.init()))], mainTab: .initialState)) {
+        AppCoordinatorReducer()
+    }
     var body: some Scene {
         WindowGroup {
-            AppCoordinatorView(store: Store(initialState: AppCoordinatorReducer.State(routes: [.root(.splash(.init()))]), reducer: {
-                AppCoordinatorReducer()
-            }))
+            AppCoordinatorView(store: store)
         }
     }
 }

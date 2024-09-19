@@ -6,25 +6,31 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+import TCACoordinators
 
 struct MainTabView: View {
+ var store: StoreOf<MainTabReducer>
+    
     var body: some View {
-        TabView {
-            HomeScreenView()
-                .tabItem {
-                    Label(
-                        title: { Text("home") },
-                        icon: { Image(systemName: "house") }
-                    )
-                }
-            
-            SettingView()
-                .tabItem {
-                    Label(
-                        title: { Text("Setting") },
-                        icon: { Image(systemName: "gear") }
-                    )
-                }
+        WithPerceptionTracking {
+            TabView {
+                HomeScreenView()
+                    .tabItem {
+                        Label(
+                            title: { Text("home") },
+                            icon: { Image(systemName: "house") }
+                        )
+                    }
+                
+                SettingView(store: store.scope(state: \.setting, action: \.setting))
+                    .tabItem {
+                        Label(
+                            title: { Text("Setting") },
+                            icon: { Image(systemName: "gear") }
+                        )
+                    }
+            }
         }
     }
 }
